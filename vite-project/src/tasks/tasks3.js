@@ -31,76 +31,87 @@ function delay(ms) {
 //  processNumbers(numbersTask1);
 //  // Output (after delays): 1, 4, 9, 16, 25
 
-//  //TASK 2
-// //  Task 2: Concurrently Calculate Factorials of Numbers
-// //  Objective: Use for...of, Promise.all, and async/await to concurrently calculate the factorial of each number in an array.
-//  //Async function to calculate factorials concurrently
-//   async function calculateFactorials(numbers) {
+//  TASK 2
+ //  Task 2: Concurrently Calculate Factorials of Numbers
+  // Objective: Use for...of, Promise.all, and async/await to concurrently calculate the factorial of each number in an array.
+// Async function to calculate factorials concurrently
+   
+// async function calculateFactorials(numbers) {
 
-//    console.log("calculating Factorial concurrently")
-//    try {
-// //      // creating an array of promises with delay
-//       let promises=  numbers.map(async (num) => {
+//     console.log("calculating Factorial concurrently")
+//     try {
+//       //  creating an array of promises with delay
+//        let promises=  numbers.map(async (num) => {
 //         await delay(num*100)
-//         return num*num
+//          let sum=num
 
-//       });
+//          //while loop used to iterate through the number 
+//          while(num>1)
+//           { 
+//             num-=1 
+//             sum=sum*num
+//           }
 
-//       // use Promise.all to resolve them all
-//       let results = await Promise.all(promises)
+//           return sum
+//        });
+      
+      
+//        // use Promise.all to resolve them all
+//        let results = await Promise.all(promises)
 
-//       // Use for...of to log the results
-//     for (let result of results) {
-//       console.log(result);
+//      //   Use for...of to log the results
+//      for (let result of results) {
+//        console.log(result);
+//      }
+
+
+//     } catch (error) {
+//       console.error("Error calculating factorials:", error);
 //     }
+//   }
 
+//  //   Array of numbers to calculate factorials
+//    let numbersTask2 = [3, 4, 5, 6, 7];
 
-//    } catch (error) {
-//      console.error("Error calculating factorials:", error);
-//    }
-//  }
-
-// //  // Array of numbers to calculate factorials
-//   let numbersTask2 = [3, 4, 5, 6, 7];
-
-//   // Call the function to calculate factorials
-//   calculateFactorials(numbersTask2);
-// //  // Output: 6, 24, 120, 720, 5040
+// //   // Call the function to calculate factorials
+//    calculateFactorials(numbersTask2);
+// // //  // Output: 6, 24, 120, 720, 5040
 
 
 // TASK 3 Parallel Processing of Strings with Delay
 //    Objective: Use for...of, Promise.all, and async/await to process an array of strings in parallel, each with a simulated delay.
 
 // Async function to process an array of strings with a delay
-  // async function processStrings(strings) {
+  //  async function processStrings(strings) {
 
-  //   try {
+  //    try {
 
-  //      let word = strings.map(  (string) => { 
-  //       return new Promise( (resolve) => {
-  //         resolve((string.toUpperCase())) //.toUpperCase used
-  //      })} )
+  //       let word = strings.map(  (string) => { 
+         
+  //        return new Promise( (resolve) => {
+  //          resolve((string.toUpperCase())) //.toUpperCase used
+  //         })} )
        
-  //      let results = await Promise.all(word)
-       
-  //     console.log( setTimeout( async ()=> {console.log(results[0])}, 1000))
-  //     for(let result of results){
-  //       setTimeout( async ()=> {console.log(result)}, 1000)
+  //       let results = await Promise.all(word)
 
-  //     }
+  //      for(let result of results){
+  //       await delay(1000)
+  //         console.log( result)
+  //      }
 
-       
-  //   } catch (error) {
-  //     console.error("Error processing strings:", error);
-  //   }
+  //    
+  //    } catch (error) {
 
-  // }
+  //      console.error("Error processing strings:", error);
+  //    }
 
-  // // Array of strings to process
-  // let strings = ["apple", "banana", "cherry"];
+  //  }
 
-  // //Call the function to process strings
-  // processStrings(strings);
+  //  // Array of strings to process
+  //  let strings = ["apple", "banana", "cherry"];
+
+  // // //Call the function to process strings
+  //  processStrings(strings);
   
 //Output (after delays): 'APPLE', 'BANANA', 'CHERRY'
 
@@ -108,28 +119,35 @@ function delay(ms) {
 // // Task 2: Concurrently Compute Fibonacci Numbers
 // // Objective: Use for...of, Promise.all, and async/await to concurrently compute Fibonacci numbers for each number in an array.
 
-
-// async function computeFibonacci(numbers) {
-//   try {
+//  async function computeFibonacci(numbers) {
+//    try {
    
-//     for (const num of numbers) {
-//       let sum = [num];
-//       sum.push(sum+=num)
-//       console.log(sum)
+//      let results=[]
+//      for (const num of numbers) {
+//        let sum = [num]
+//        results.push(new Promise (resolve => {resolve(sum.push(sum+=num))
+//         console.log(sum)
+//        }))
+
+       
+//      }
      
-//     }
-//   } catch (error) {
-//     console.error("Error computing Fibonacci numbers:", error);
-//   }
+   
+//      let output = await Promise.all(results)
+//      console.log(output)
+     
+//    } catch (error) {
+//      console.error("Error computing Fibonacci numbers:", error);
+//    }
 
 
-// }
+//  }
 
-// // Array of numbers to compute Fibonacci numbers
-// let numbersTask4 = [3,4,5,6,7]; 
+// // // Array of numbers to compute Fibonacci numbers
+//  let numbersTask4 = [3,4,5,6,7]; 
 
-// // Call the function to compute Fibonacci numbers
-// computeFibonacci(numbersTask4);
+//  // Call the function to compute Fibonacci numbers
+//  computeFibonacci(numbersTask4);
 
 // //TASK 5
 // // Parallel Processing of Objects with Calculations
