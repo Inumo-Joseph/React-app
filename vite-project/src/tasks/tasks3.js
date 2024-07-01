@@ -119,35 +119,39 @@ function delay(ms) {
 // // Task 2: Concurrently Compute Fibonacci Numbers
 // // Objective: Use for...of, Promise.all, and async/await to concurrently compute Fibonacci numbers for each number in an array.
 
-//  async function computeFibonacci(numbers) {
-//    try {
-   
-//      let results=[]
-//      for (const num of numbers) {
-//        let sum = [num]
-//        results.push(new Promise (resolve => {resolve(sum.push(sum+=num))
-//         console.log(sum)
-//        }))
+// Function to compute Fibonacci number
+function fibonacci(n) {
+  if (n <= 1) return n;
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
 
+
+  async function computeFibonacci(numbers) {
+    try {
+   
+      let fibonacciPromises = numbers.map(async (num) => {
+        return fibonacci(num);
+      });
        
-//      }
+      let output = await Promise.all(fibonacciPromises)
+
+    
+    // Use for...of to log the results
+    for (let result of output) {
+      console.log(result);
+    }
      
-   
-//      let output = await Promise.all(results)
-//      console.log(output)
-     
-//    } catch (error) {
-//      console.error("Error computing Fibonacci numbers:", error);
-//    }
+    } catch (error) {
+      console.error("Error computing Fibonacci numbers:", error);
+    }
 
+  }
 
-//  }
-
-// // // Array of numbers to compute Fibonacci numbers
-//  let numbersTask4 = [3,4,5,6,7]; 
+ // // Array of numbers to compute Fibonacci numbers
+  let numbersTask4 = [3,4,5,6,7]; 
 
 //  // Call the function to compute Fibonacci numbers
-//  computeFibonacci(numbersTask4);
+  computeFibonacci(numbersTask4);
 
 // //TASK 5
 // // Parallel Processing of Objects with Calculations
